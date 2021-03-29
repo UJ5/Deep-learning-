@@ -43,4 +43,4 @@ for i in range(6):
                 g.add_edge(int(curr_node),int(nodes[i+1][j]),dist)
             if(j+1<6 and img1[cd[i][j+1][1]][cd[i][j+1][0]]!=0):
                 dist=int(weights(i,j+1))
-                g.add_edge(int(curr_node),int(nodes[i][j+1]),dist
+                g.add_edge(int(curr_node),int(nodes[i][j+1]),dist)
