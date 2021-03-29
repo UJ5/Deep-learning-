@@ -1,0 +1,46 @@
+"code to generate nodes:"
+g=Graph()
+for i in range(36):
+    g.add_node(int(i))
+    
+    
+    
+    
+    
+"code to generate edges with weights:"
+
+
+def weights(x,y):
+    if(img1[cd[x][y][1],cd[x][y][0]]==154):
+        return(1)
+    if(img1[cd[x][y][1],cd[x][y][0]]==25):
+        return(1)
+    if(img1[cd[x][y][1],cd[x][y][0]]==201):
+        return(3)
+    if(img1[cd[x][y][1],cd[x][y][0]]==133):
+        return(2)
+    if(img1[cd[x][y][1],cd[x][y][0]]==227):
+        return(1)
+    if(img1[cd[x][y][1],cd[x][y][0]]==43):
+        return(4)
+    if(img1[cd[x][y][1],cd[x][y][0]]==0):
+        return(0)
+    if(img1[cd[x][y][1],cd[x][y][0]]==53):
+        return(1)
+    
+for i in range(6):
+    for j in range(6):
+        curr_node=nodes[i][j]
+        if(img1[cd[i][j][1]][cd[i][j][0]]!=0):
+            if(i-1>=0 and img1[cd[i-1][j][1]][cd[i-1][j][0]]!=0):
+                dist=int(weights(i-1,j))
+                g.add_edge(int(curr_node),int(nodes[i-1][j]),dist)
+            if(j-1>=0 and img1[cd[i][j-1][1]][cd[i][j-1][0]]!=0):
+                dist=int(weights(i,j-1))
+                g.add_edge(int(curr_node),int(nodes[i][j-1]),dist)
+            if(i+1<6 and img1[cd[i+1][j][1]][cd[i+1][j][0]]!=0):
+                dist=int(weights(i+1,j))
+                g.add_edge(int(curr_node),int(nodes[i+1][j]),dist)
+            if(j+1<6 and img1[cd[i][j+1][1]][cd[i][j+1][0]]!=0):
+                dist=int(weights(i,j+1))
+                g.add_edge(int(curr_node),int(nodes[i][j+1]),dist
